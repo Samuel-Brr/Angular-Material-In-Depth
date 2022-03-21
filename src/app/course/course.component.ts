@@ -36,6 +36,8 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     displayedColumns = ['seqNo', 'description', 'duration']
 
+    expandedLesson: Lesson = null
+
     ngOnInit() {
 
         this.course = this.route.snapshot.data["course"];
@@ -43,6 +45,17 @@ export class CourseComponent implements OnInit, AfterViewInit {
         this.loadLessonsPage()
 
     }
+
+  onToggleLesson(lesson: Lesson){
+
+    if(lesson == this.expandedLesson){
+      this.expandedLesson = null
+    }
+    else{
+      this.expandedLesson = lesson
+    }
+
+  }
 
 
   loadLessonsPage() {
