@@ -19,6 +19,8 @@ export class CoursesCardListComponent implements OnInit {
 
     rowHeight = "500px"
 
+    handsetPortrait = false
+
     constructor(private dialog: MatDialog,
                 private responsive: BreakpointObserver) {
     }
@@ -37,6 +39,8 @@ export class CoursesCardListComponent implements OnInit {
 
           this.rowHeight = "500px"
 
+          this.handsetPortrait = false
+
           const breakpoints = result.breakpoints;
 
           if (breakpoints[Breakpoints.TabletPortrait]){
@@ -44,6 +48,7 @@ export class CoursesCardListComponent implements OnInit {
           }else if(breakpoints[Breakpoints.HandsetPortrait]){
             this.cols =1
             this.rowHeight = "430px"
+            this.handsetPortrait = true
           }else if(breakpoints[Breakpoints.HandsetLandscape]){
             this.cols = 1
           }else if(breakpoints[Breakpoints.TabletLandscape]){
